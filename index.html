@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saleemullah Khan - Journalist & Media Professional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0d47a1;
+            --accent: #ff6b35;
+            --dark: #1a1a1a;
+            --light: #f8f8f8;
+            --text: #2c2c2c;
+            --border: #e0e0e0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text);
+            background: var(--light);
+            line-height: 1.6;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background: white;
+            border-bottom: 2px solid var(--border);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .nav-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 4rem;
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .hero-content .highlight {
+            color: var(--accent);
+        }
+
+        .hero-content .title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            padding: 0.9rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #0a3a8a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(13, 71, 161, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--border);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: #555;
+        }
+
+        .contact-item strong {
+            color: var(--primary);
+            min-width: 80px;
+        }
+
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(13, 71, 161, 0.2);
+        }
+
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+            border-radius: 2px;
+        }
+
+        .experience {
+            background: white;
+        }
+
+        .job-item {
+            border-left: 4px solid var(--primary);
+            padding-left: 2rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .job-item::before {
+            content: '';
+            position: absolute;
+            left: -12px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--primary);
+        }
+
+        .job-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .job-company {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.05rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .job-dates {
+            color: #888;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .job-description {
+            color: #555;
+            margin-bottom: 0.8rem;
+        }
+
+        .job-tasks {
+            list-style: none;
+            margin-top: 0.8rem;
+        }
+
+        .job-tasks li {
+            color: #666;
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .job-tasks li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .education {
+            background: white;
+        }
+
+        .degree-item {
+            background: linear-gradient(135deg, #f5f5f5, white);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .degree-item:hover {
+            box-shadow: 0 8px 20px rgba(13, 71, 161, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .degree-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .degree-school {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .degree-field {
+            color: #666;
+            margin-bottom: 0.3rem;
+        }
+
+        .degree-year {
+            color: #999;
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+        }
+
+        .skills {
+            background: linear-gradient(135deg, var(--primary) 0%, #1565c0 100%);
+            color: white;
+        }
+
+        .skills h2 {
+            color: white;
+        }
+
+        .skills h2::after {
+            background: linear-gradient(90deg, var(--accent), rgba(255, 107, 53, 0.3));
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .skill-category h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+        }
+
+        .skill-item::before {
+            content: '✓';
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-weight: bold;
+            color: white;
+            font-size: 0.85rem;
+        }
+
+        .research {
+            background: white;
+        }
+
+        .research-item {
+            padding: 2rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .research-item:hover {
+            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.15);
+            border-color: var(--accent);
+        }
+
+        .research-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.8rem;
+        }
+
+        .research-meta {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        .meta-tag {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .research-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            margin-right: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .research-link:hover {
+            color: var(--accent);
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .cert-card {
+            background: linear-gradient(135deg, #f5f5f5, white);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 24px rgba(255, 107, 53, 0.2);
+        }
+
+        .cert-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-year {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .cert-id {
+            color: #999;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            word-break: break-all;
+        }
+
+        .extras {
+            background: linear-gradient(135deg, #f5f5f5, white);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .extras-column h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .language-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .language-name {
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .language-level {
+            color: var(--accent);
+            font-size: 0.95rem;
+        }
+
+        .interest-item {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            border: 2px solid var(--primary);
+            margin: 0.5rem 0.5rem 0.5rem 0;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .interest-item:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 4px solid var(--accent);
+        }
+
+        footer h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+        }
+
+        footer p {
+            color: #ccc;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 3rem 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .extras {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-brand">Saleemullah Khan</div>
+        <ul class="nav-links">
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Saleemullah <span class="highlight">Khan</span></h1>
+            <div class="title">Journalist & Media Professional</div>
+            <p>Dynamic media professional with 4+ years of experience in broadcast journalism, digital content production, and public relations. Passionate about storytelling, research-driven reporting, and leveraging media for social impact.</p>
+            
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                <a href="resume.pdf" class="btn btn-secondary">Download Resume</a>
+            </div>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <strong>📧 Email:</strong>
+                    <span>su.khan1992@yahoo.com</span>
+                </div>
+                <div class="contact-item">
+                    <strong>📞 Phone:</strong>
+                    <span>+92 332-2727204</span>
+                </div>
+                <div class="contact-item">
+                    <strong>📍 Location:</strong>
+                    <span>Karachi, Pakistan</span>
+                </div>
+                <div class="contact-item">
+                    <strong>💼 LinkedIn:</strong>
+                    <span>saleem-ullah-khan</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <img src="profile.jpg" alt="Saleemullah Khan">
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <h2>Professional Experience</h2>
+        
+        <div class="job-item">
+            <div class="job-title">Associate Producer</div>
+            <div class="job-company">AAJ NEWS (BR)</div>
+            <div class="job-dates">2023 - Present</div>
+            <div class="job-description"><strong>Department:</strong> Output Desk (News Room) & Election Cell</div>
+            <ul class="job-tasks">
+                <li>News breaking, copy editing, and package production</li>
+                <li>DSK, tickers, and rundown handling for broadcast news</li>
+                <li>Election data research, compilation, and analysis</li>
+                <li>Monitoring 100+ constituencies for election coverage</li>
+                <li>Facts and figures verification for accuracy</li>
+            </ul>
+        </div>
+
+        <div class="job-item">
+            <div class="job-title">Assistant Teacher</div>
+            <div class="job-company">University of Karachi</div>
+            <div class="job-dates">2024 - 2025</div>
+            <div class="job-description"><strong>Subject:</strong> News Writing and Reporting, Theories of Media</div>
+            <ul class="job-tasks">
+                <li>Teach news writing practice and theories to media students</li>
+                <li>Provide instruction on reporting methodologies and techniques</li>
+                <li>Mentor students in developing journalistic skills</li>
+            </ul>
+        </div>
+
+        <div class="job-item">
+            <div class="job-title">Copy Writer</div>
+            <div class="job-company">AAJ NEWS DIGITAL</div>
+            <div class="job-dates">2023 - 2024</div>
+            <ul class="job-tasks">
+                <li>Content editing and story production for digital platform</li>
+                <li>SEO optimization for online news articles</li>
+                <li>Created engaging and informative news content</li>
+                <li>Tracked and produced trending topics and reports</li>
+            </ul>
+        </div>
+
+        <div class="job-item">
+            <div class="job-title">Public Relations Officer</div>
+            <div class="job-company">SS-TRADERS</div>
+            <div class="job-dates">2018 - 2022</div>
+            <ul class="job-tasks">
+                <li>Handled media communication and social media updates</li>
+                <li>Issued press releases and promoted new arrivals</li>
+                <li>Conducted business-related meetings with external contacts</li>
+            </ul>
+        </div>
+
+        <div class="job-item">
+            <div class="job-title">Office Secretary</div>
+            <div class="job-company">Community NPO</div>
+            <div class="job-dates">2018 - Present</div>
+            <ul class="job-tasks">
+                <li>Organized meetings and coordinated with team members</li>
+                <li>Managed official documents, records, and communications</li>
+                <li>Handled administrative duties for smooth operations</li>
+                <li>Assisted in team building and event preparation</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="education" id="education">
+        <h2>Education</h2>
+        
+        <div class="degree-item">
+            <div class="degree-name">Master of Philosophy (M.Phil)</div>
+            <div class="degree-school">University of Karachi</div>
+            <div class="degree-field">Mass Communication</div>
+            <div class="degree-year">2023 - Present</div>
+        </div>
+
+        <div class="degree-item">
+            <div class="degree-name">Master of Arts (MA)</div>
+            <div class="degree-school">University of Karachi</div>
+            <div class="degree-field">Mass Communication - Specialization in Advertisement & Public Relations</div>
+            <div class="degree-year">2021 - 2022</div>
+        </div>
+
+        <div class="degree-item">
+            <div class="degree-name">Bachelor of Arts (BA)</div>
+            <div class="degree-school">University of Karachi</div>
+            <div class="degree-field">International Relations, Political Science, Sociology</div>
+            <div class="degree-year">2019</div>
+        </div>
+
+        <div class="degree-item">
+            <div class="degree-name">Intermediate</div>
+            <div class="degree-school">Board of Intermediate Education Karachi</div>
+            <div class="degree-field">Pre-Engineering</div>
+            <div class="degree-year">2013</div>
+        </div>
+
+        <div class="degree-item">
+            <div class="degree-name">Matriculation</div>
+            <div class="degree-school">Board of Secondary Education Karachi</div>
+            <div class="degree-field">Science Group</div>
+            <div class="degree-year">2009</div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <h2>Skills & Expertise</h2>
+        
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Journalism & Media</h3>
+                <div class="skill-item">News Writing & Editing</div>
+                <div class="skill-item">Broadcast Journalism</div>
+                <div class="skill-item">Digital Content Production</div>
+                <div class="skill-item">Copy Editing</div>
+                <div class="skill-item">Press Releases</div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Digital & Content</h3>
+                <div class="skill-item">SEO & Digital Content</div>
+                <div class="skill-item">Social Media Management</div>
+                <div class="skill-item">Advertisement & Copywriting</div>
+                <div class="skill-item">Trending Topics & Analytics</div>
+                <div class="skill-item">Public Relations Strategies</div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Research & Analysis</h3>
+                <div class="skill-item">Data Research & Analysis</div>
+                <div class="skill-item">Content Analysis</div>
+                <div class="skill-item">Election Data Management</div>
+                <div class="skill-item">Fact Verification</div>
+                <div class="skill-item">Academic Research</div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Technical & Tools</h3>
+                <div class="skill-item">MS Office Suite</div>
+                <div class="skill-item">Excel & Data Management</div>
+                <div class="skill-item">Canva Design</div>
+                <div class="skill-item">ChatGPT & AI Tools</div>
+                <div class="skill-item">Newsroom Software</div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Communication</h3>
+                <div class="skill-item">Public Communication</div>
+                <div class="skill-item">Newsroom Operations</div>
+                <div class="skill-item">Team Coordination</div>
+                <div class="skill-item">External Relations</div>
+                <div class="skill-item">Administrative Management</div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Languages</h3>
+                <div class="skill-item">English - Proficient</div>
+                <div class="skill-item">Urdu - Native</div>
+                <div class="skill-item">Pashto - Conversational</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section class="research" id="research">
+        <h2>Research & Publications</h2>
+        
+        <div class="research-item">
+            <div class="research-title">Green Journalism in Pakistan: A Study of Challenges Faced by Environmental Journalists</div>
+            <div class="research-meta">
+                <span class="meta-tag">📅 2025</span>
+                <span class="meta-tag">🏆 Published</span>
+            </div>
+            <div class="research-description">A comprehensive research examining environmental journalism challenges in Pakistan, with findings relevant to sustainable reporting practices.</div>
+            <div>
+                <a href="https://doi.org/10.46745/ilma.jmc.2025.06.01.05" class="research-link">View Publication</a>
+                <span style="color: #999;">Ilma University Conference 2025</span>
+            </div>
+        </div>
+
+        <div class="research-item">
+            <div class="research-title">Effects of TikTok on Students' Lifestyle: A Study of Social Sciences Students</div>
+            <div class="research-meta">
+                <span class="meta-tag">📅 2024</span>
+                <span class="meta-tag">🏆 Published</span>
+            </div>
+            <div class="research-description">Investigative study on the impact of social media platforms on student behavior and lifestyle choices at University of Karachi.</div>
+            <div>
+                <a href="https://jlsms.org/index.php/jlsms/article/view/85" class="research-link">View Publication</a>
+                <span style="color: #999;">University of Karachi</span>
+            </div>
+        </div>
+
+        <div class="research-item">
+            <div class="research-title">Unveiling Agenda Setting in Pakistani Media: A Content Analysis of Current Affairs Talk Shows</div>
+            <div class="research-meta">
+                <span class="meta-tag">📅 2024</span>
+                <span class="meta-tag">📊 Presented</span>
+            </div>
+            <div class="research-description">Content analysis exploring how Pakistani media shapes public discourse through talk show programming.</div>
+        </div>
+
+        <div class="research-item">
+            <div class="research-title">Advertising as a Tool for Social Development: Content Analysis of Social Advertisements</div>
+            <div class="research-meta">
+                <span class="meta-tag">📅 2024</span>
+                <span class="meta-tag">📊 Presented</span>
+            </div>
+            <div class="research-description">Analysis of how advertising can be leveraged for social causes in Pakistani electronic media.</div>
+            <span style="color: #999;">SMIU 2nd GRC 2024</span>
+        </div>
+
+        <div class="research-item">
+            <div class="research-title">Effects of Social Media in Socialization</div>
+            <div class="research-meta">
+                <span class="meta-tag">📅 2024</span>
+                <span class="meta-tag">🏆 Published</span>
+            </div>
+            <div class="research-description">Examination of how social media platforms influence social interaction and relationship building among users.</div>
+            <div>
+                <a href="https://www.academia.edu/103838007/Effects_of_social_media_in_socialization" class="research-link">View on Academia.edu</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section class="certificates">
+        <h2>Certifications</h2>
+        
+        <div class="cert-grid">
+            <div class="cert-card">
+                <div class="cert-name">The Role of AI in Research and Scientific Writing</div>
+                <div class="cert-year">August 2024</div>
+                <div class="cert-id">Credential ID: 2024-AIW-110</div>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-name">Media Matters of Democracy</div>
+                <div class="cert-year">October 2023</div>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-name">Freelancing Professional Skills</div>
+                <div class="cert-year">October 2023</div>
+                <div class="cert-id">Credential ID: DNNJMK5</div>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-name">Personal Branding</div>
+                <div class="cert-year">July 2023</div>
+                <div class="cert-id">Credential ID: WDF73DE3VGU2</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Languages & Interests Section -->
+    <section class="extras">
+        <div class="extras-column">
+            <h3>Languages</h3>
+            <div class="language-item">
+                <div class="language-name">English</div>
+                <div class="language-level">Proficient</div>
+            </div>
+            <div class="language-item">
+                <div class="language-name">Urdu</div>
+                <div class="language-level">Native Speaker</div>
+            </div>
+            <div class="language-item">
+                <div class="language-name">Pashto</div>
+                <div class="language-level">Conversational</div>
+            </div>
+        </div>
+
+        <div class="extras-column">
+            <h3>Interests & Passions</h3>
+            <div>
+                <span class="interest-item">Social Media Trends</span>
+                <span class="interest-item">Mass Communication</span>
+                <span class="interest-item">Political Science</span>
+                <span class="interest-item">Photography</span>
+                <span class="interest-item">Videography</span>
+                <span class="interest-item">Research & Analysis</span>
+                <span class="interest-item">Social Work</span>
+                <span class="interest-item">Community Engagement</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <h3>Let's Connect</h3>
+        <p>Open to opportunities in journalism, media production, digital content, and academic roles.</p>
+        
+        <div class="social-links">
+            <a href="mailto:su.khan1992@yahoo.com">Email</a>
+            <a href="tel:+923322727204">Call</a>
+            <a href="https://linkedin.com/in/saleem-ullah-khan">LinkedIn</a>
+        </div>
+
+        <p>© 2025 Saleemullah Khan | Journalist & Media Professional</p>
+        <p style="font-size: 0.9rem; margin-top: 1rem;">Karachi, Pakistan 📍</p>
+    </footer>
+</body>
+</html>
